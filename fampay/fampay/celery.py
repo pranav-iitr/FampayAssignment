@@ -24,3 +24,24 @@ app.autodiscover_tasks()
 
 # We used CELERY_BEAT_SCHEDULER in settings.py instead of:
 # app.conf.beat_scheduler = ''django_celery_beat.schedulers.DatabaseScheduler'
+# path/to/your/proj/src/cfehome/celery.py
+
+from celery.schedules import crontab
+
+# Below is for illustration purposes. We 
+# configured so we can adjust scheduling 
+# in the Django admin to manage all 
+# Periodic Tasks like below
+app.conf.beat_schedule = {
+    
+    'multiply-every-5-seconds': {
+        'task': 'multiply_two_numbers',
+        'schedule': 5.0,
+        'args': (16, 16)
+    },
+    'add-every-30-seconds': {
+        'task': 'movies.tasks.add',
+        'schedule': 30.0,
+        'args': (16, 16)
+    },
+}
