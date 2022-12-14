@@ -36,7 +36,7 @@ app.conf.beat_schedule = {
     
     'add-every-4-min': {
         'task': 'youtube.tasks.add',
-        'schedule': 240.0,
+        'schedule': 10.0,
         'args': ()
     },
 }

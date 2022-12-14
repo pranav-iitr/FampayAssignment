@@ -15,7 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from youtube.views import YoutubeListApiView,YoutubeSearchAPIView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('list',YoutubeListApiView.as_view()),
+    path('serach',YoutubeSearchAPIView.as_view()  )
 ]
