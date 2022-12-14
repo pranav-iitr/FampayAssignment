@@ -33,20 +33,10 @@ from celery.schedules import crontab
 # in the Django admin to manage all 
 # Periodic Tasks like below
 app.conf.beat_schedule = {
-    # 'multiply-task-crontab': {
-    #     'task': 'multiply_two_numbers',
-    #     'schedule': crontab(hour=7, minute=30, day_of_week=1),
-    #     'args': (16, 16),
-    # },
-
-    'multiply-every-5-seconds': {
-        'task': 'multiply_two_numbers',
-        'schedule': 5.0,
-        'args': (16, 16)
-    },
-    'add-every-30-seconds': {
+    
+    'add-every-4-min': {
         'task': 'youtube.tasks.add',
-        'schedule': 30.0,
-        'args': (16, 16)
+        'schedule': 240.0,
+        'args': ()
     },
 }
